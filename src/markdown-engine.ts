@@ -1268,65 +1268,14 @@ for (var i = 0; i < flowcharts.length; i++) {
     let styleCSS = "";
     try {
       // prism *.css
-      styleCSS +=
-        !this.config.printBackground &&
-        !yamlConfig["print_background"] &&
-        !yamlConfig["isPresentationMode"]
-          ? await utility.readFile(
-              path.resolve(
-                extensionDirectoryPath,
-                `./styles/prism_theme/github.css`,
-              ),
-              { encoding: "utf-8" },
-            )
-          : await utility.readFile(
-              path.resolve(
-                extensionDirectoryPath,
-                `./styles/prism_theme/${this.getPrismTheme(
-                  yamlConfig["isPresentationMode"],
-                  yamlConfig,
-                )}`,
-              ),
-              { encoding: "utf-8" },
-            );
-
-      if (yamlConfig["isPresentationMode"]) {
-        styleCSS += await utility.readFile(
-          path.resolve(
-            extensionDirectoryPath,
-            `./styles/revealjs_theme/${
-              yamlConfig["presentation"] &&
-              typeof yamlConfig["presentation"] === "object" &&
-              yamlConfig["presentation"]["theme"]
-                ? yamlConfig["presentation"]["theme"]
-                : this.config.revealjsTheme
-            }`,
-          ),
-          { encoding: "utf-8" },
-        );
-      } else {
-        // preview theme
-        styleCSS +=
-          !this.config.printBackground && !yamlConfig["print_background"]
-            ? await utility.readFile(
-                path.resolve(
-                  extensionDirectoryPath,
-                  `./styles/preview_theme/github-light.css`,
-                ),
-                { encoding: "utf-8" },
-              )
-            : await utility.readFile(
-                path.resolve(
-                  extensionDirectoryPath,
-                  `./styles/preview_theme/${this.config.previewTheme}`,
-                ),
-                { encoding: "utf-8" },
-              );
-      }
-
-      // style template
       styleCSS += await utility.readFile(
-        path.resolve(extensionDirectoryPath, "./styles/style-template.css"),
+        path.resolve(
+          utility.extensionDirectoryPath,
+          `./styles/prism_theme/${this.getPrismTheme(
+            yamlConfig["isPresentationMode"],
+            yamlConfig,
+          )}`,
+        ),
         { encoding: "utf-8" },
       );
     } catch (e) {
