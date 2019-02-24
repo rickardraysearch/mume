@@ -615,6 +615,7 @@ if (typeof(window['Reveal']) !== 'undefined') {
     "gothic.css": "github.css",
     "medium.css": "github.css",
     "monokai.css": "monokai.css",
+    "none.css": "none.css",
     "newsprint.css": "pen-paper-coffee.css", // <= this is bad
     "night.css": "darcula.css", // <= this is bad
     "one-dark.css": "one-dark.css",
@@ -631,6 +632,7 @@ if (typeof(window['Reveal']) !== 'undefined') {
     "league.css": "okaidia.css",
     "moon.css": "funky.css",
     "night.css": "atom-dark.css",
+    "none.css": "none.css",
     "serif.css": "github.css",
     "simple.css": "github.css",
     "sky.css": "default.css",
